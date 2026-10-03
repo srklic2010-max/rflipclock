@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Flip — a desk-side flip clock</title>
+  <meta name="description" content="A full-screen split-flap clock made for the monitor next to your desk." />
+  <meta name="theme-color" content="#121212" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='6' y='6' width='52' height='52' rx='8' fill='%23191919'/><rect x='6' y='31' width='52' height='2' fill='%23000'/><text x='32' y='46' font-family='Arial' font-weight='700' font-size='36' text-anchor='middle' fill='%23f3efe6'>12</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-theme="classic">
+  <main class="stage" id="stage">
+    <div class="clock" id="clock" aria-live="off">
+      <div class="card" id="hours"><span class="meridiem" id="meridiem" aria-hidden="true"></span></div>
+      <div class="sep" aria-hidden="true"><i></i><i></i></div>
+      <div class="card" id="minutes"></div>
+      <div class="sep sep-seconds" aria-hidden="true"><i></i><i></i></div>
+      <div class="card card-seconds" id="seconds"></div>
+    </div>
+    <p class="date" id="date"></p>
+    <p class="sr-only" id="spoken" aria-live="polite"></p>
+  </main>
+
+  <nav class="dock" id="dock" aria-label="Clock settings">
+    <button type="button" data-action="format" title="12 / 24 hour (H)"><span class="k">H</span><span id="lbl-format">24h</span></button>
+    <button type="button" data-action="seconds" title="Show seconds (S)"><span class="k">S</span><span id="lbl-seconds">Seconds</span></button>
+    <button type="button" data-action="date" title="Show date (D)"><span class="k">D</span><span id="lbl-date">Date</span></button>
+    <button type="button" data-action="theme" title="Change theme (T)"><span class="k">T</span><span id="lbl-theme">Classic</span></button>
+    <button type="button" data-action="wake" title="Keep screen awake (W)"><span class="k">W</span><span id="lbl-wake">Stay awake</span></button>
+    <button type="button" data-action="fullscreen" title="Full screen (F)"><span class="k">F</span><span id="lbl-fullscreen">Full screen</span></button>
+  </nav>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
